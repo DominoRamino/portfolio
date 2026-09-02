@@ -2,7 +2,7 @@
 window.RAMY = {
   profile: {
     name: "Ramy AlRammahi",
-    handle: "Platform Engineer",
+    handle: "infrastructure-engineer",
     title: "Platform Engineer",
     tagline: "Kubernetes, GitOps, and Azure platform engineering. I build the infrastructure other engineers ship on, and the tools that make it observable.",
     location: "Ann Arbor, MI",
@@ -527,7 +527,7 @@ window.RAMY = {
     { when: "2023 - 2026, every six months", where: "CTO and technology leadership", what: "Project and rotation outcome presentations: what I built, what I learned, what the platform needs next." },
     { when: "2024", where: "Director-level leadership", what: "Ongoing consultation while building the early LLM ordering prototype." },
     { when: "2026", where: "Application development teams", what: "Kubernetes enablement training: workload reliability, building applications for Kubernetes." },
-    { when: "2023", where: "200+ developers", what: "Interactive security training supporting PCI compliance." },
+    { when: "2023", where: "Security Compliance Training ", what: "Interactive security training supporting PCI compliance." },
     { when: "ongoing", where: "Learning Day committee", what: "Organizing internal technical education and building the event platform." }
   ],
 
@@ -543,7 +543,7 @@ window.RAMY = {
   },
 
   about: {
-    photo: "assets/img/ramy.jpg",
+    photo: "assets/img/ramy.png",
     bio: [
       "I build things. At work that means Kubernetes platforms on Azure and the automation around them. Outside work it means whatever tool I wished existed that week: a packet-capture system for pods, a shell that takes plain English, a Discord bot that reads the room, and one browser game emulator that I lost to a dead disk.",
       "My lab is a minikube cluster I delete and recreate more often than I should. My terminal is heavily customized, and if I do something twice it becomes a script.",
