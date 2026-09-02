@@ -51,8 +51,8 @@ window.RECRUITER = (function () {
       el('div', { class: 'ctx' }, [
         el('span', {}, ['context: ', el('b', { text: P.handle })]),
         el('span', {}, ['status: ', el('b', { class: 'run', text: 'Running' })]),
-        el('span', {}, ['age: ', el('b', { text: ageOf('2023-06-01') })]),
-        el('span', {}, ['updated: ', el('b', { text: P.updated })])
+        el('span', {}, ['age: ', el('b', { text: ageOf('2000-12-01') })]),
+        el('span', {}, ['updated: ', el('b', { text: P.updated })] )
       ]),
       el('a', { class: 'btn-k9s', href: '#k9s' }, [el('span', { class: 'caret', text: '>_' }), 'open in k9s'])
     ]);

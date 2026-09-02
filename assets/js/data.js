@@ -2,7 +2,7 @@
 window.RAMY = {
   profile: {
     name: "Ramy AlRammahi",
-    handle: "ramy-alrammahi",
+    handle: "Platform Engineer",
     title: "Platform Engineer",
     tagline: "Kubernetes, GitOps, and Azure platform engineering. I build the infrastructure other engineers ship on, and the tools that make it observable.",
     location: "Ann Arbor, MI",
@@ -32,17 +32,17 @@ window.RAMY = {
     {
       name: "uk-connectivity-proxy", ns: "cloud-eng", kind: "Deployment", ready: "2/2", status: "Running", restarts: 0,
       started: "2026-02-01", ended: null, tags: ["featured", "experience"],
-      title: "UK and Ireland store connectivity modernization",
+      title: "International store connectivity modernization",
       tagline: "Replaced retiring on-prem network and proxy infrastructure with an isolated, multi-region Azure Container Apps architecture.",
       role: "Lead infrastructure engineer",
       bullets: [
-        "Led the redesign and migration of connectivity services for Domino's UK and Ireland store estate, replacing retiring on-premises network and proxy infrastructure with an isolated, multi-region Azure architecture.",
+        "Led the redesign and migration of connectivity services for Domino's International store estate, replacing retiring on-premises network and proxy infrastructure with an isolated, multi-region Azure architecture.",
         "Prototyped the proposed managed API-gateway design, surfaced per-route certificate constraints through testing, and drove an architecture review toward Azure Container Apps.",
         "Built active-active Apache reverse proxies with region-aware split DNS, path-based routing, and connectivity across overlapping network address spaces.",
         "Owned architecture, Terraform, proxy configuration, deployment automation, testing, and production cutover. Delivered in roughly a month with no reported production issues and no proxy VMs left to maintain."
       ],
       describe: {
-        situation: "Corporate services reached UK and Ireland stores through two paths that were both going away: partner-managed network hardware slated for shutdown, and on-prem proxy VMs. A first attempt to lift the proxies into Azure VMs failed because the corporate and partner networks used overlapping IP ranges.",
+        situation: "Corporate services reached International stores through two paths that were both going away: partner-managed network hardware slated for shutdown, and on-prem proxy VMs. A first attempt to lift the proxies into Azure VMs failed because the partner networks used overlapping IP ranges.",
         task: "Design and deliver a replacement that runs in an isolated Azure network, reaches partner infrastructure despite overlapping address space, honors per-route certificate requirements, preserves complex API path routing, and resolves traffic per region, before the shutdown deadline.",
         action: "Built and tested the proposed managed API-gateway design first. The required tier could not do per-route certificates, so I brought that evidence to architecture review and proposed Azure Container Apps among other options. Implemented an Apache reverse proxy on Container Apps, active-active across two regions, each pinned to the matching partner region, with split-horizon DNS steering traffic. Wrote the Terraform, Apache config, and deployment pipeline. Used AI-assisted development heavily to move fast, and personally validated networking, security, and cutover behavior.",
         result: "Live in production with no reported issues. Retired both legacy paths, removed the proxy-VM maintenance burden that isolated networks make painful, and beat the shutdown deadline."
@@ -491,7 +491,7 @@ window.RAMY = {
     { t: "2025-10", type: "Normal",  reason: "Created",    obj: "open-source/podscope",               m: "PodScope first production capture" },
     { t: "2025-11", type: "Normal",  reason: "Completed",  obj: "infra-aks/latency-investigation",    m: "Reactor Netty latency isolated and fixed" },
     { t: "2026-02", type: "Normal",  reason: "Promoted",   obj: "cloud-eng/platform-modernization",   m: "Promoted to Platform Engineer II" },
-    { t: "2026-03", type: "Normal",  reason: "Created",    obj: "cloud-eng/uk-connectivity-proxy",    m: "UK and Ireland connectivity platform live" },
+    { t: "2026-03", type: "Normal",  reason: "Created",    obj: "cloud-eng/intl-connectivity-proxy",    m: "International connectivity platform live" },
     { t: "2026-04", type: "Normal",  reason: "Merged",     obj: "open-source/terraform-provider-azurerm", m: "Upstream PR #32080 merged into terraform-provider-azurerm" },
     { t: "2026-09", type: "Normal",  reason: "Updated",    obj: "sandbox/now",                        m: "Experimenting with local inference and agentic systems" }
   ],
