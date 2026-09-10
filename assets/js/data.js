@@ -4,10 +4,11 @@ window.RAMY = {
     name: "Ramy AlRammahi",
     handle: "infrastructure-engineer",
     title: "Platform Engineer",
+    roles: ["Platform Engineer", "DevOps Engineer", "Helmsman", "Teacher", "Explorer"],
     tagline: "Kubernetes, GitOps, and Azure platform engineering. I build the infrastructure other engineers ship on, and the tools that make it observable.",
     location: "Ann Arbor, MI",
     summary:
-      "Platform engineer specializing in Kubernetes, GitOps, and Terraform automation across multi-tenant environments. Promoted to Platform Engineer II after helping operate and modernize a multi-region Azure platform supporting 100+ applications. I like being the technical interface for the teams who consume the platform: onboarding, documentation, training, and the hard debugging sessions.",
+      "Platform engineer specializing in Kubernetes, GitOps, and Terraform automation across multi-tenant environments. Operating and modernizing a multi-region Azure platform supporting 200+ applications. I like being the technical interface for the teams who consume the platform: onboarding, documentation, training, and the hard debugging sessions.",
     updated: "2026-09-01",
     resumePdf: "assets/Ramy_AlRammahi_Resume.pdf",
     links: {
@@ -20,8 +21,8 @@ window.RAMY = {
 
   namespaces: [
     { name: "cloud-eng",   label: "Platform Engineer II, Cloud Engineering", period: "Feb 2026 - present", status: "Active", desc: "Current role at Domino's. Architecture ownership, upstream contributions, platform modernization." },
-    { name: "infra-aks",   label: "Platform Engineer I, Cloud Engineering",  period: "Jun 2025 - Jan 2026", status: "Active", desc: "First full-time role after the rotation program. AKS platform operations on a four-person team." },
-    { name: "rotation",    label: "Technology Rotation Program",             period: "Jun 2023 - Jun 2025", status: "Active", desc: "Two-year rotation across DevSecOps, LLM software engineering, AKS infrastructure, and BI data engineering." },
+    { name: "infra-aks",   label: "Platform Engineer I, Cloud Engineering",  period: "Jun 2024 - Feb 2026", status: "Active", desc: "Full-time platform role on a four-person team: multi-tenant AKS operations, plus the highly available Vault build and RBAC automation." },
+    { name: "software-eng", label: "Software Engineer I",                     period: "Jun 2023 - Jun 2024", status: "Active", desc: "Full-stack engineer on Dom, Domino's LLM ordering assistant, built as one combined team with Microsoft. Python specialist." },
     { name: "open-source", label: "Open source",                             period: "2025 - present",      status: "Active", desc: "Public work: PodScope and an upstream Terraform provider contribution." },
     { name: "sandbox",     label: "Side projects and lab",                   period: "ongoing",             status: "Active", desc: "Things built for fun, for learning, or because a tool did not exist yet." },
     { name: "education",   label: "Education and certification",             period: "2019 - 2024",         status: "Active", desc: "Oakland University and Microsoft certification." }
@@ -88,30 +89,30 @@ window.RAMY = {
     /* ---------------- infra-aks ---------------- */
     {
       name: "aks-platform-ops", ns: "infra-aks", kind: "Deployment", ready: "4/4", status: "Running", restarts: 0,
-      started: "2025-06-01", ended: null, tags: ["experience"],
+      started: "2024-06-01", ended: null, tags: ["experience"],
       title: "Multi-tenant AKS platform operations",
       tagline: "Four-person team responsible for lifecycle, reliability, security, and support across multi-tenant AKS clusters and 100+ applications.",
       role: "Platform Engineer I",
       bullets: [
         "Served on a four-person platform engineering team responsible for lifecycle, reliability, security, and support across multi-tenant AKS clusters, 100+ applications, and hundreds of code repositories.",
         "Participated in production on-call rotations, led root-cause investigations, and implemented mitigations.",
-        "Led 5+ application and platform production releases through risk assessment, rollback planning, and change-advisory review; mentored three rotation associates; maintained 50+ GitOps repositories.",
+        "Led 5+ application and platform production releases through risk assessment, rollback planning, and change-advisory review; mentored three junior engineers; maintained 50+ GitOps repositories.",
         "Automated bastion VM lifecycle management with Ansible."
       ],
       describe: {
         situation: "Enterprise Kubernetes platform: multiple AKS clusters across several regions, replicated production and nonproduction environments, and a broader migration from on-prem infrastructure to Azure.",
         task: "Keep it healthy, keep it upgraded, keep the application teams unblocked, and help retire the legacy hybrid clusters as workloads moved to Azure.",
-        action: "Cluster upgrades, troubleshooting across storage, networking, ingress, TLS, private endpoints, and policy failures. On-call. Release ownership in front of the change advisory board. Code review across the GitOps repos. Mentoring the rotation associates who came through the team.",
+        action: "Cluster upgrades, troubleshooting across storage, networking, ingress, TLS, private endpoints, and policy failures. On-call. Release ownership in front of the change advisory board. Code review across the GitOps repos. Mentoring the junior engineers who came through the team.",
         result: "Platform stayed reliable through the migration; hybrid on-prem clusters were decommissioned; earned the promotion to Engineer II."
       },
       tech: ["AKS", "Helm", "FluxCD", "Terraform", "Ansible", "Azure Monitor", "Kyverno"],
       links: [],
       logs: [
-        { t: "2025-06", m: "accepted return offer: Infrastructure Engineer, AKS" },
+        { t: "2024-06", m: "joined the AKS platform team full-time" },
         { t: "2025-08", m: "first production release through change advisory board" },
         { t: "2025-10", m: "hybrid on-prem clusters decommissioned" },
         { t: "2025-11", m: "bastion VM lifecycle automated with ansible" },
-        { t: "2026-01", m: "third rotation associate mentored" }
+        { t: "2026-01", m: "third junior engineer mentored through onboarding" }
       ]
     },
     {
@@ -132,7 +133,7 @@ window.RAMY = {
       tech: ["Kubernetes RBAC", "Microsoft Entra ID", "Terraform", "FluxCD", "Helm"],
       links: [],
       logs: [
-        { t: "2024-08", m: "first version shipped during AKS rotation" },
+        { t: "2024-08", m: "first version shipped on the AKS platform team" },
         { t: "2025-09", m: "extended to platform-wide provisioning" }
       ]
     },
@@ -186,13 +187,12 @@ window.RAMY = {
       ]
     },
 
-    /* ---------------- rotation ---------------- */
     {
-      name: "vault-on-aks", ns: "rotation", kind: "Deployment", ready: "3/3", status: "Running", restarts: 0,
+      name: "vault-on-aks", ns: "infra-aks", kind: "Deployment", ready: "3/3", status: "Running", restarts: 0,
       started: "2024-06-01", ended: null, tags: ["experience"],
       title: "Highly available HashiCorp Vault on AKS",
       tagline: "Helm, Raft storage, Kubernetes auth, automated backups, cross-cluster recovery.",
-      role: "Infrastructure rotation, Jun - Dec 2024",
+      role: "Designer and implementer",
       bullets: [
         "Designed and implemented a highly available HashiCorp Vault architecture on AKS with Helm, Raft storage, Azure Key Vault integration, Kubernetes authentication, CronJob-based backups, and cross-cluster snapshot recovery.",
         "Developed Kyverno policies for registry access and image-pull security; resolved storage, private-endpoint, TLS, and pod-startup failures."
@@ -206,79 +206,44 @@ window.RAMY = {
       tech: ["HashiCorp Vault", "Helm", "Raft", "Azure Key Vault", "Kubernetes CronJobs", "Kyverno"],
       links: [],
       logs: [
-        { t: "2024-06", m: "rotation: infrastructure engineering, AKS" },
+        { t: "2024-06", m: "kicked off on the AKS platform team" },
         { t: "2024-09", m: "vault raft cluster live with auto-unseal" },
         { t: "2024-11", m: "cross-cluster snapshot restore validated" }
       ]
     },
+
+    /* ---------------- software-eng ---------------- */
     {
-      name: "llm-ordering-prototype", ns: "rotation", kind: "Job", ready: "1/1", status: "Completed", restarts: 0,
-      started: "2024-01-01", ended: "2024-06-30", tags: ["experience", "ai"],
-      title: "Early LLM ordering assistant, before agents were a thing",
-      tagline: "Built with Microsoft engineers in the GPT-4 / Claude 3 era. Python, PromptFlow, Azure OpenAI, and a lot of evaluation.",
-      role: "Software engineering rotation, Jan - Jun 2024",
+      name: "llm-ordering-assistant", ns: "software-eng", kind: "Deployment", ready: "0/0", status: "Terminated", restarts: 0,
+      started: "2023-06-01", ended: "2025-01-31", tags: ["featured", "experience", "ai"],
+      image: "assets/img/Dom2.jpg",
+      title: "Dom, the LLM ordering assistant",
+      tagline: "Production agentic ordering chatbot built as one team with Microsoft. Python, PromptFlow, Azure OpenAI. Shipped to customers July 2024; ~$750K in revenue.",
+      role: "Software Engineer I, Python specialist",
       bullets: [
-        "Built an early LLM ordering-assistant prototype with Microsoft engineers using Python, the PromptFlow SDK, and Azure OpenAI, and consulted regularly with director-level leadership on direction.",
-        "Built the automated evaluation framework for the assistant using PromptFlow and Azure OpenAI, and contributed to the Java Spring REST layer connecting existing ordering channels to LLM calls."
+        "Delivered a production-ready agentic ordering experience in tight collaboration with Microsoft, using Python, PromptFlow, Azure OpenAI, Presidio, and other LLM orchestration tools to give customers an entirely new way to order. Shipped as a chatbot on the Domino's website in July 2024 and generated roughly $750K in revenue.",
+        "Designed a semi-deterministic estimator that probed the user for party size and age mix, hunger level, and budget, computed an appropriate amount of food, and fed structured JSON constraints into the recommendation flow to reduce hallucinated or mismatched suggestions.",
+        "Built the LLM-driven recommendation engine, injecting active deals, coupons, and nearest-store menu availability as context so suggestions were accurate and purchasable.",
+        "Tuned an in-house intent classifier to 95% accuracy and applied logit-bias steering on model outputs to keep responses on-format.",
+        "Developed an LLM evaluation framework from ~1,000 synthetic conversation turns, using an LLM judge to score tone, food-order accuracy, cart shape, and intent-classification accuracy, and to validate behavioral changes from system and prompt updates.",
+        "Contributed to the Java Spring REST layer bridging existing ordering channels to LLM calls, and to the Helm charts and Terraform for the containerized service running on AKS."
       ],
       describe: {
-        situation: "2024. GPT-4 and Claude 3 were new, agent frameworks did not exist, and nobody had a playbook for a conversational ordering experience.",
-        task: "Prototype it, and prove whether it worked well enough to trust.",
-        action: "Orchestrated prompts and tools by hand in Python and PromptFlow, wired it to real ordering APIs through Spring, and built an evaluation harness so quality was measured instead of guessed. Regular reviews with director-level leadership.",
-        result: "A working prototype and, more valuable in hindsight, a feel for what LLM systems need that carried straight into today's agentic work."
+        situation: "2023 into 2024. GPT-4 was brand new, agent frameworks did not exist yet, and Domino's wanted to find out whether a conversational assistant could genuinely take orders. Microsoft joined as a co-development partner.",
+        task: "Build it for real, not as a demo, and prove with data whether customers would trust an LLM to shape their cart.",
+        action: "One combined nine-person team: a PM, two QA, and six engineers, three of them from Microsoft, working a shared backlog on strict two-week agile. Microsoft was remote; we were in office and hybrid. As the Python specialist I orchestrated prompts and tools in Python and PromptFlow against Azure OpenAI, built the semi-deterministic quantity estimator that fed JSON constraints into the recommendation flow, wired active deals, coupons, and store-menu availability into context, and stood up the evaluation harness over ~1,000 synthetic turns with an LLM judge. Presidio handled PII scrubbing. I also contributed to the Java Spring REST layer and the Helm and Terraform that ran the service on AKS, and presented status and direction to the VP every month.",
+        result: "Shipped to customers as a website chatbot in July 2024. Generated roughly $750K in revenue with solid engagement, and the in-house intent classifier reached 95% accuracy. Discontinued after about six months in early 2025, but the instincts for what LLM systems actually need carried straight into later agentic work."
       },
-      tech: ["Python", "PromptFlow", "Azure OpenAI", "Java Spring", "DevContainers", "Kubernetes"],
+      tech: ["Python", "PromptFlow", "Azure OpenAI", "Presidio", "Java Spring", "AKS", "Helm", "Terraform", "DevContainers"],
       links: [],
       logs: [
-        { t: "2024-01", m: "rotation: software engineering, LLM orchestration" },
-        { t: "2024-03", m: "evaluation framework running nightly" },
-        { t: "2024-06", m: "prototype demoed to leadership. Job completed" }
-      ]
-    },
-    {
-      name: "bi-dashboards", ns: "rotation", kind: "Job", ready: "1/1", status: "Completed", restarts: 0,
-      started: "2025-01-01", ended: "2025-06-30", tags: ["experience"],
-      title: "Store operations analytics",
-      tagline: "Power BI, DAX, clustering, and automated SQL pipelines.",
-      role: "Data engineering rotation, Jan - Jun 2025",
-      bullets: [
-        "Developed Power BI dashboards for customer acquisition, retention, and store operations, and applied k-means clustering to surface patterns in order trends.",
-        "Automated SQL ETL and Power BI refresh workflows with Control-M and Jenkins; tuned complex SQL queries."
-      ],
-      describe: {
-        situation: "Store operators needed answers, not exports.",
-        task: "Build the dashboards and keep the data flowing on schedule.",
-        action: "Dimensional modeling, fiscal time intelligence, advanced DAX, clustering analysis, and scheduled pipelines.",
-        result: "Operators making decisions from dashboards that refresh themselves."
-      },
-      tech: ["Power BI", "DAX", "SQL Server", "Control-M", "Jenkins", "Python"],
-      links: [],
-      logs: [
-        { t: "2025-01", m: "rotation: data engineering, business intelligence" },
-        { t: "2025-06", m: "rotation program complete; return offer accepted" }
-      ]
-    },
-    {
-      name: "devsecops", ns: "rotation", kind: "Job", ready: "1/1", status: "Completed", restarts: 0,
-      started: "2023-06-01", ended: "2023-12-31", tags: ["experience"],
-      title: "Information security and DevSecOps",
-      tagline: "OSINT, application-security pipelines, PCI training for 200+ developers, Splunk automation.",
-      role: "Information security rotation, Jun - Dec 2023",
-      bullets: [
-        "Led OSINT investigations supporting global security operations and designed CI/CD security architecture with a DevSecOps-first approach.",
-        "Delivered an interactive security training session to 200+ developers supporting PCI compliance; automated risk-management ingestion and reporting in Splunk."
-      ],
-      describe: {
-        situation: "First rotation, straight out of an information-security degree.",
-        task: "Be useful to a global security team quickly.",
-        action: "OSINT investigations, an application-security pipeline, PCI-aligned training, and Splunk dashboards and automations.",
-        result: "The security habits that still shape how I build platforms."
-      },
-      tech: ["Splunk", "OSINT", "CI/CD security", "PCI DSS", "Kali Linux"],
-      links: [],
-      logs: [
-        { t: "2023-06", m: "joined technology rotation program" },
-        { t: "2023-10", m: "security training delivered to 200+ developers" }
+        { t: "2023-06", m: "kickoff: co-development with Microsoft, one combined 9-person agile team" },
+        { t: "2023-09", m: "python + promptflow orchestration on Azure OpenAI" },
+        { t: "2024-01", m: "semi-deterministic estimator feeding JSON constraints into the recommendation flow" },
+        { t: "2024-03", m: "eval framework: ~1,000 synthetic turns, LLM judge scoring tone/accuracy/cart shape/intent" },
+        { t: "2024-07", m: "shipped to customers as a website chatbot" },
+        { t: "2024-11", m: "intent classifier tuned to 95% accuracy; ~$750K revenue" },
+        { t: "2025-01", m: "program discontinued after ~6 months. Deployment terminated" }
       ]
     },
 
@@ -375,7 +340,7 @@ window.RAMY = {
         action: "A small web platform with the schedule, talk details, and gamification.",
         result: "In progress."
       },
-      tech: ["Web", "Python"],
+      tech: ["Web", "Python", "React", "TypeScript", "FastAPI"],
       links: [],
       logs: [{ t: "2026-05", m: "committee kicks off platform build" }]
     },
@@ -481,13 +446,11 @@ window.RAMY = {
   },
 
   events: [
-    { t: "2023-06", type: "Normal",  reason: "Scheduled",  obj: "rotation/devsecops",                 m: "Joined Domino's Technology Rotation Program" },
-    { t: "2023-10", type: "Normal",  reason: "Delivered",  obj: "rotation/devsecops",                 m: "Security training for 200+ developers" },
-    { t: "2024-01", type: "Normal",  reason: "Scheduled",  obj: "rotation/llm-ordering-prototype",    m: "Rotation: LLM orchestration with Microsoft engineers" },
-    { t: "2024-06", type: "Normal",  reason: "Scheduled",  obj: "rotation/vault-on-aks",              m: "Rotation: AKS infrastructure. Vault, RBAC automation, Kyverno" },
+    { t: "2023-06", type: "Normal",  reason: "Scheduled",  obj: "software-eng/llm-ordering-assistant", m: "Joined Domino's as a Software Engineer on the LLM ordering assistant" },
+    { t: "2024-06", type: "Normal",  reason: "Created",    obj: "infra-aks/vault-on-aks",             m: "Joined the AKS platform team; HA Vault and RBAC automation" },
+    { t: "2024-07", type: "Normal",  reason: "Created",    obj: "software-eng/llm-ordering-assistant", m: "Dom LLM ordering assistant shipped to customers" },
     { t: "2024-12", type: "Normal",  reason: "Certified",  obj: "education/az-900",                   m: "Microsoft Certified: Azure Fundamentals" },
-    { t: "2025-01", type: "Normal",  reason: "Scheduled",  obj: "rotation/bi-dashboards",             m: "Rotation: BI data engineering" },
-    { t: "2025-06", type: "Normal",  reason: "Created",    obj: "infra-aks/aks-platform-ops",         m: "Return offer accepted: Infrastructure Engineer, AKS" },
+    { t: "2025-01", type: "Warning", reason: "Terminated", obj: "software-eng/llm-ordering-assistant", m: "Dom discontinued after ~6 months; ~$750K revenue" },
     { t: "2025-10", type: "Normal",  reason: "Created",    obj: "open-source/podscope",               m: "PodScope first production capture" },
     { t: "2025-11", type: "Normal",  reason: "Completed",  obj: "infra-aks/latency-investigation",    m: "Reactor Netty latency isolated and fixed" },
     { t: "2026-02", type: "Normal",  reason: "Promoted",   obj: "cloud-eng/platform-modernization",   m: "Promoted to Platform Engineer II" },
@@ -524,10 +487,9 @@ window.RAMY = {
   ],
 
   talks: [
-    { when: "2023 - 2026, every six months", where: "CTO and technology leadership", what: "Project and rotation outcome presentations: what I built, what I learned, what the platform needs next." },
-    { when: "2024", where: "Director-level leadership", what: "Ongoing consultation while building the early LLM ordering prototype." },
+    { when: "2023 - 2026, every six months", where: "CTO and technology leadership", what: "Project outcome presentations: what I built, what I learned, what the platform needs next." },
+    { when: "2023 - 2024, monthly", where: "VP and leadership", what: "Status and direction reviews for Dom, the LLM ordering assistant: progress, risks, and where the opportunities were." },
     { when: "2026", where: "Application development teams", what: "Kubernetes enablement training: workload reliability, building applications for Kubernetes." },
-    { when: "2023", where: "Security Compliance Training ", what: "Interactive security training supporting PCI compliance." },
     { when: "ongoing", where: "Learning Day committee", what: "Organizing internal technical education and building the event platform." }
   ],
 
@@ -547,7 +509,7 @@ window.RAMY = {
     bio: [
       "I build things. At work that means Kubernetes platforms on Azure and the automation around them. Outside work it means whatever tool I wished existed that week: a packet-capture system for pods, a shell that takes plain English, a Discord bot that reads the room, and one browser game emulator that I lost to a dead disk.",
       "My lab is a minikube cluster I delete and recreate more often than I should. My terminal is heavily customized, and if I do something twice it becomes a script.",
-      "I came to Domino's through a two-year technology rotation and stayed in cloud engineering because platform work sits exactly where I like to be: between the infrastructure and the people who need it to work. I mentor rotation associates and help run our internal Learning Day."
+      "I started at Domino's as a software engineer building Dom, an LLM ordering assistant, then moved into platform engineering because that work sits exactly where I like to be: between the infrastructure and the people who need it to work. I mentor junior engineers and help run our internal Learning Day."
     ]
   }
 };

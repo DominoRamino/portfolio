@@ -1,42 +1,24 @@
 /* ======================== DESIGN TOKENS ======================== */
 :root {
-  color-scheme: light dark;
-  --background: #f7f7f3;
-  --surface: #fcfcf9;
-  --surface-secondary: #efefeb;
-  --text-primary: #171817;
-  --text-secondary: #454945;
-  --text-muted: #565b56;
-  --border: #d8dad5;
-  --border-strong: #a7aaa4;
-  --accent-primary: #5332c7;
-  --accent-secondary: #b8ff24;
-  --accent-secondary-text: #3d5700;
-  --accent-cyan: #08778b;
-  --code-background: #eeefec;
+  color-scheme: dark;
+  --background: #080909;
+  --surface: #0d0f0e;
+  --surface-secondary: #111412;
+  --text-primary: #f2f4f1;
+  --text-secondary: #bec4bf;
+  --text-muted: #a5aca6;
+  --border: #303530;
+  --border-strong: #555c55;
+  --accent-primary: #a895ff;
+  --accent-secondary: #65ffac;
+  --accent-secondary-text: #65ffac;
+  --accent-cyan: #62d9ee;
+  --code-background: #111311;
   --display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
   --body: "IBM Plex Sans", system-ui, sans-serif;
   --mono: "IBM Plex Mono", monospace;
   --max: 1460px;
   --pad: clamp(20px, 4vw, 72px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #080909;
-    --surface: #0d0f0e;
-    --surface-secondary: #111412;
-    --text-primary: #f2f4f1;
-    --text-secondary: #bec4bf;
-    --text-muted: #a5aca6;
-    --border: #303530;
-    --border-strong: #555c55;
-    --accent-primary: #a895ff;
-    --accent-secondary: #65ffac;
-    --accent-secondary-text: #65ffac;
-    --accent-cyan: #62d9ee;
-    --code-background: #111311;
-  }
 }
 
 /* ======================== RESET / GLOBAL ======================== */
@@ -621,6 +603,33 @@ main {
   background-image: linear-gradient(135deg, transparent 49.7%, var(--border) 50%, transparent 50.3%);
 }
 
+.project-media.has-image {
+  position: relative;
+  overflow: hidden;
+  background-image: none;
+  background-color: #e21c38;
+}
+
+.project-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.project-media.has-image .media-code {
+  display: none;
+}
+
+.project-media.has-image .media-status {
+  z-index: 2;
+  color: #fff;
+  opacity: .85;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+}
+
 .media-code,
 .media-status {
   position: absolute;
@@ -998,6 +1007,38 @@ footer {
   100% {
     opacity: 0;
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* The typed slots empty out mid-animation. Without a reserved line box the hero would collapse and
+   snap back on every keystroke, so each name line and the role line hold their own height. */
+.hero h1 .type-line {
+  min-height: .84em;
+}
+
+.hero h1 .type-text {
+  display: inline;
+}
+
+.hero-role {
+  font-size: clamp(12px, 1.35vw, 15px);
+  color: var(--text-secondary);
+  min-height: 1.55em;
+}
+
+.typed-role {
+  color: var(--accent-secondary-text);
 }
 
 /* ======================== RESPONSIVE ======================== */
