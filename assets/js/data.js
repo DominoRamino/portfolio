@@ -8,7 +8,7 @@ window.RAMY = {
     tagline: "Kubernetes, GitOps, and Azure platform engineering. I build the infrastructure other engineers ship on, and the tools that make it observable.",
     location: "Ann Arbor, MI",
     summary:
-      "Platform engineer specializing in Kubernetes, GitOps, and Terraform automation across multi-tenant environments. Operating and modernizing a multi-region Azure platform supporting 200+ applications. I like being the technical interface for the teams who consume the platform: onboarding, documentation, training, and the hard debugging sessions.",
+      "Platform engineer specializing in Kubernetes, GitOps, and Terraform automation across multi-tenant environments. Operating and modernizing a multi-region Azure platform supporting $8B+ eCommerce business. I like being the technical interface for the teams who consume the platform: onboarding, documentation, training, and the hard debugging sessions.",
     updated: "2026-09-01",
     resumePdf: "assets/Ramy_AlRammahi_Resume.pdf",
     links: {

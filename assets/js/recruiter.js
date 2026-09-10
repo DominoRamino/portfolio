@@ -61,16 +61,9 @@ window.RECRUITER = (function () {
         step(1750, function () { erase(roleSlot, 34, function () { step(320, function () { cycle(i + 1); }); }); });
       });
     }
-    firstSlot.textContent = ''; lastSlot.textContent = ''; roleSlot.textContent = '';
-    moveCursor(firstSlot);
-    step(380, function () {
-      type(firstSlot, names[0], 58, function () {
-        moveCursor(lastSlot);
-        type(lastSlot, names[1], 58, function () {
-          step(560, function () { moveCursor(roleSlot); cycle(0); });
-        });
-      });
-    });
+    roleSlot.textContent = '';
+    moveCursor(roleSlot);
+    cycle(0);
   }
   function render(root, D) {
     var P = D.profile, byNs = {};
@@ -80,8 +73,8 @@ window.RECRUITER = (function () {
     var nav = el('nav', { class: 'site-nav', 'aria-label': 'Primary navigation' }, [el('a', { class: 'wordmark', href: '#top', 'aria-label': P.name + ' home' }, [el('span', { text: 'RA' }), el('i')]), el('div', { class: 'nav-status', text: 'SYS.TIME ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }), el('div', { class: 'nav-links' }, [el('a', { href: '#experience', text: 'EXPERIENCE' }), el('a', { href: '#selected-work', text: 'PROJECTS' }), el('a', { href: '#skills', text: 'SKILLS' }), el('a', { href: '#about', text: 'ABOUT' })]), el('a', { class: 'terminal-link', href: '#k9s' }, [el('span', { text: '>_' }), ' K9S'])]);
     var hero = el('header', { class: 'hero', id: 'top' }, [
       el('div', { class: 'hero-grid' }, [
-        el('div', { class: 'hero-copy' }, [el('div', { class: 'eyebrow' }, [el('span', { text: '/01' }), dot('running'), el('span', { text: 'ONLINE' })]), el('h1', {}, [nameLine(first, ''), nameLine(last, ' accent-name')]), roleLine(P), el('p', { class: 'hero-tagline', text: P.tagline }), el('p', { class: 'hero-coordinates', text: 'X_' + P.updated.replace(/-/g, '.') + ' / LOC_' + P.location.toUpperCase() }), el('div', { class: 'hero-actions' }, [el('a', { class: 'button primary-button', href: 'mailto:' + P.links.email, text: 'CONTACT ↗' }), el('a', { class: 'button', href: P.links.github, rel: 'me noopener', text: 'GITHUB ↗' }), el('a', { class: 'button', href: P.resumePdf, download: '', text: 'RESUME.PDF ↓' })])]),
-        el('div', { class: 'hero-visual frame-corners' }, [el('div', { class: 'media-placeholder hero-placeholder' }, [el('span', { class: 'visual-label', text: 'INFRASTRUCTURE / SYSTEMS' }), el('div', { class: 'network', 'aria-hidden': 'true' }, [el('i'), el('i'), el('i'), el('i'), el('i'), el('i'), el('i')]), el('img', { class: 'hero-art', src: 'assets/img/image.png', alt: 'Abstract platform engineering infrastructure illustration', width: '2500', height: '2500', decoding: 'async', fetchpriority: 'high' }), el('span', { class: 'visual-readout', text: 'SYSTEMS\nOBSERVABLE\nRELIABLE\nSELF-HEALING' })]), el('span', { class: 'hero-badge', text: 'PLATFORM\nENGINEERING' })])
+        el('div', { class: 'hero-copy' }, [el('div', { class: 'eyebrow' }, [dot('running'), el('span', { text: 'PLATFORM ENGINEERING' })]), el('h1', {}, [nameLine(first, ''), nameLine(last, ' accent-name')]), roleLine(P), el('p', { class: 'hero-tagline', text: P.tagline }), el('p', { class: 'hero-coordinates', text: P.location + ' / Kubernetes / GitOps / Azure' }), el('div', { class: 'hero-actions' }, [el('a', { class: 'button primary-button', href: 'mailto:' + P.links.email, text: 'CONTACT ↗' }), el('a', { class: 'button', href: P.links.github, rel: 'me noopener', text: 'GITHUB ↗' }), el('a', { class: 'button', href: P.resumePdf, download: '', text: 'RESUME.PDF ↓' })])]),
+        el('div', { class: 'hero-visual' }, [el('div', { class: 'hero-window-bar', 'aria-hidden': 'true' }, [el('i'), el('i'), el('i'), el('span', { text: 'ramy / workspace' })]), el('div', { class: 'media-placeholder hero-placeholder' }, [el('img', { class: 'hero-art', src: 'assets/img/hero-pixel.png', alt: 'Pixel-art scene of a developer coding at night: city skyline through the window, house plants, a bookshelf, a neon code icon, and a mug that reads code sleep repeat', width: '1916', height: '821', decoding: 'async', fetchpriority: 'high' })]), el('div', { class: 'hero-window-caption' }, [el('span', { text: 'Infrastructure. Tooling. People.' }), el('span', {}, [dot('running'), ' Always building'])])])
       ]),
       el('div', { class: 'status-bar' }, [['PROJECTS', String(D.workloads.length)], ['FOCUS', 'K8S + GITOPS'], ['STATUS', 'ACTIVE'], ['LOCATION', P.location.toUpperCase()]].map(function (x, i) { return el('div', {}, [el('span', { text: x[0] }), el('b', { text: x[1] }), i < 3 ? el('i') : null]); }))
     ]);

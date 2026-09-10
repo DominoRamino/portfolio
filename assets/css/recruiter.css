@@ -164,7 +164,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: .38;
+  opacity: .2;
   pointer-events: none;
   background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px), radial-gradient(circle at 20% 25%, color-mix(in srgb, var(--accent-primary) 10%, transparent), transparent 26%);
   background-size: 72px 72px, 72px 72px, 100% 100%;
@@ -172,16 +172,17 @@ a:hover {
 }
 
 .hero-grid {
-  min-height: 630px;
-  padding: clamp(64px, 8vw, 122px) var(--pad) 70px;
+  min-height: 650px;
+  padding: clamp(64px, 7vw, 104px) var(--pad);
   display: grid;
-  grid-template-columns: minmax(0, 42%) minmax(0, 58%);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 76px);
   align-items: center;
   position: relative;
 }
 
 .hero-copy {
-  padding-right: clamp(24px, 5vw, 84px);
+  min-width: 0;
   z-index: 1;
 }
 
@@ -208,10 +209,9 @@ a:hover {
 }
 
 .hero h1 {
-  font: 800 clamp(52px, 6.2vw, 100px)/.84 var(--display);
-  letter-spacing: -.075em;
-  text-transform: uppercase;
-  margin: 0 0 25px;
+  font: 700 clamp(48px, 5.4vw, 78px)/1.02 var(--display);
+  letter-spacing: -.055em;
+  margin: 0 0 24px;
 }
 
 .hero h1 span {
@@ -219,7 +219,7 @@ a:hover {
 }
 
 .hero h1 .accent-name {
-  color: var(--accent-primary);
+  color: var(--text-primary);
 }
 
 .hero-role {
@@ -228,10 +228,10 @@ a:hover {
 }
 
 .hero-tagline {
-  max-width: 610px;
+  max-width: 490px;
   color: var(--text-secondary);
-  font-size: clamp(15px, 1.4vw, 18px);
-  line-height: 1.6;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.75;
   margin: 0 0 22px;
 }
 
@@ -243,8 +243,28 @@ a:hover {
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 30px;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.hero-actions .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 14px 18px;
+  border-radius: 5px;
+  font-size: 11px;
+  letter-spacing: .03em;
+}
+
+.hero-actions .primary-button {
+  background: var(--accent-primary);
+  color: var(--background);
+}
+
+.hero-actions .primary-button:hover {
+  background: var(--text-primary);
 }
 
 .button {
@@ -268,7 +288,47 @@ a:hover {
 .hero-visual {
   min-width: 0;
   position: relative;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0a0b20;
+  box-shadow: 0 24px 70px #0005;
+}
+
+.hero-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 18px;
+  border-bottom: 1px solid #ffffff12;
+  color: var(--text-muted);
+  font: 10px/1 var(--mono);
+}
+
+.hero-window-bar i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #626078;
+}
+
+.hero-window-bar span {
+  margin-left: auto;
+}
+
+.hero-window-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
   padding: 18px;
+  color: var(--text-secondary);
+  font: 10px/1.5 var(--mono);
+}
+
+.hero-window-caption span:last-child {
+  color: var(--accent-secondary);
 }
 
 .frame-corners::before,
@@ -302,18 +362,18 @@ a:hover {
 }
 
 .hero-placeholder {
-  aspect-ratio: 16/10;
-  display: grid;
-  place-items: center;
-  background-image: linear-gradient(135deg, transparent 49.8%, var(--border) 50%, transparent 50.2%), radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent-cyan) 13%, transparent), transparent 42%);
+  aspect-ratio: 1916 / 821;
+  border: 0;
+  overflow: hidden;
+  background-color: #0a0b34;
 }
 
 .hero-art {
   position: absolute;
-  inset: 4%;
+  inset: 0;
   z-index: 2;
-  width: 92%;
-  height: 92%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
 }
@@ -424,7 +484,7 @@ a:hover {
   grid-template-columns: repeat(4, 1fr);
   min-height: 64px;
   border-top: 1px solid var(--border);
-  background: var(--surface-secondary);
+  background: var(--surface);
 }
 
 .status-bar div {
@@ -1024,7 +1084,7 @@ footer {
 /* The typed slots empty out mid-animation. Without a reserved line box the hero would collapse and
    snap back on every keystroke, so each name line and the role line hold their own height. */
 .hero h1 .type-line {
-  min-height: .84em;
+  min-height: 1.02em;
 }
 
 .hero h1 .type-text {
@@ -1057,16 +1117,17 @@ footer {
 
   .hero-grid {
     min-height: auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 54px;
   }
 
   .hero-copy {
     padding-right: 0;
+    min-width: 0;
   }
 
   .hero h1 {
-    font-size: clamp(56px, 12vw, 90px);
+    font-size: clamp(56px, 9vw, 80px);
   }
 
   .hero-visual {
@@ -1129,7 +1190,9 @@ footer {
   }
 
   .hero-grid {
-    padding-top: 60px;
+    gap: 36px;
+    padding-top: 52px;
+    padding-bottom: 48px;
   }
 
   .hero h1 {
@@ -1141,7 +1204,8 @@ footer {
   }
 
   .hero-visual {
-    display: none;
+    max-width: none;
+    padding: 0;
   }
 
   .status-bar {
@@ -1239,10 +1303,6 @@ footer {
 
   .status-bar div {
     min-height: 52px;
-  }
-
-  .hero-placeholder {
-    aspect-ratio: 1;
   }
 
   .visual-readout {
